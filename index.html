@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>todo</title><link rel="stylesheet" type="text/css" href="style/css/style.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link href="node_modules/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+
+  </head>
+  <body ng-app="app" ng-controller="MainController as vm">
+    <h1>Todo</h1>
+
+    <div class="container col-md-4 col-md-offset-4">
+      <div id="containerHeader"></div>
+      <form novalidate>
+          <formly-form model="vm.todo" fields="vm.todoFields" form="vm.rentalForm">
+              <button type="submit" class="btn btn-primary" id="submitButton" ng-disabled="vm.rentalForm.$invalid" ng-click="subTodo()" >Submit</button>
+          </formly-form>
+      </form>
+      <table class="table table-responsive">
+       <thead>
+        <tr id="table">
+          <th>Todo</th>
+          <th>Date</th>
+          <th>Button</th>
+        </tr>
+       </thead>
+       <tbody>
+         <tr ng-repeat="todos in todoList" id="{{todos.id}}">
+           <td id="{{todos.tdId}}" ng-dblclick="editItem(todos.tdId)">{{todos.name}}</td>
+          <td id="{{todos.dateId}}" ng-dblclick="editData(todos.dateId, $index)">{{todos.date}}<datepicker id="{{todos.datepickerEdit}}" date-format="dd/MM/yyyy"><input type="hidden" ng-model="date" class="form-control" id="{{todos.inputDataEdit}}" /></datepicker></td>
+          <td><button class="btn btn-default" ng-click="delete(todos.id)" ><span class="glyphicon glyphicon-remove"></span></button></td>
+         </tr>
+        </tbody>
+       </table>
+    </div>
+  </body>
+
+  <script src="node_modules/api-check/dist/api-check.js"></script>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-formly/dist/formly.js"></script>
+  <script src="node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+  <script src="node_modules/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+
+  <script src="app.js"></script>
+  <script src="scripts/MainController.js"></script>
+  <script src="scripts/containerHeader.js"></script>
+
+</html>

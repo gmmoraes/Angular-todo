@@ -1,0 +1,14 @@
+.container {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 20px;
+  -webkit-box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2); }
+
+#containerHeader {
+  background: linear-gradient(#e6e6e6, #e6e6e6, #c0c0c0);
+  padding: 10px;
+  margin-top: -20px;
+  margin-left: -13px;
+  margin-bottom: 10px;
+  float: left; }
